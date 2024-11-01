@@ -3,9 +3,12 @@ const sequelize = require("./config");
 const express = require("express");
 const app = express();
 
+// import the Department model
+const Department = require("./models/department");
+
 // test sequelize connection
 sequelize
-  .authenticate()
+  .sync()
   .then(() => {
     console.log("Connection has been established successfully.");
   })
