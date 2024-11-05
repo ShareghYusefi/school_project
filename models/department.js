@@ -11,6 +11,7 @@ const Department = sequelize.define(
     // Model attributes are defined here
     id: {
       type: DataTypes.INTEGER,
+      autoIncrement: true,
       allowNull: false,
       primaryKey: true,
     },

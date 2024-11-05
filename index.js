@@ -1,9 +1,11 @@
 // sequelize connection to database
 const sequelize = require("./config");
 const express = require("express");
-// import mysql
-const mysql = require("mysql2");
 const app = express();
+
+// urlencoded middleware from express
+app.use(express.urlencoded({ extended: true }));
+// extended means that the values can be any type
 
 // import the Department model
 const Department = require("./models/department");
@@ -14,6 +16,20 @@ app.get("/departments", (req, res) => {
   Department.findAll()
     .then((results) => {
       res.status(200).send(results);
+    })
+    .catch((err) => {
+      res.status(err.status).send(err.message);
+    });
+});
+
+// post a new department
+app.post("/departments", (req, res) => {
+  // create a new department using the Department model
+  Department.create({
+    name: req.body.name,
+  })
+    .then((department) => {
+      res.status(200).send(department);
     })
     .catch((err) => {
       res.status(err.status).send(err.message);
