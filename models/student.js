@@ -3,8 +3,8 @@ const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../config");
 
 // Use the sequelize instance to define a model
-const Employee = sequelize.define(
-  "Employee",
+const Student = sequelize.define(
+  "Student",
   {
     // Model attributes are defined here
     id: {
@@ -13,18 +13,14 @@ const Employee = sequelize.define(
       autoIncrement: true,
       primaryKey: true,
     },
-    firstName: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    lastName: {
+    level: {
       type: DataTypes.STRING,
       allowNull: false,
       // allowNull defaults to true
-    },
-    salary: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
     },
   },
   {
@@ -33,4 +29,4 @@ const Employee = sequelize.define(
 );
 
 // export the model
-module.exports = Employee;
+module.exports = Student;
