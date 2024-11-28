@@ -4,10 +4,15 @@ const express = require("express");
 // const DepartmentRoutes = require("./routes/department");
 const StudentRoutes = require("./routes/student");
 const app = express();
+// enable cors for all requests
+const cors = require("cors");
 
 // urlencoded middleware from express
 app.use(express.urlencoded({ extended: true }));
 // extended means that the values can be any type
+
+// use cors middleware
+app.use(cors());
 
 // use department routes
 // app.use(DepartmentRoutes);
