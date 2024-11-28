@@ -1,8 +1,8 @@
 // sequelize connection to database
 const sequelize = require("./config");
 const express = require("express");
-const DepartmentRoutes = require("./routes/department");
-const EmployeeRoutes = require("./routes/student");
+// const DepartmentRoutes = require("./routes/department");
+const StudentRoutes = require("./routes/student");
 const app = express();
 
 // urlencoded middleware from express
@@ -10,9 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 // extended means that the values can be any type
 
 // use department routes
-app.use(DepartmentRoutes);
+// app.use(DepartmentRoutes);
 // use student routes
-app.use(EmployeeRoutes);
+app.use(StudentRoutes);
 
 // test sequelize connection
 sequelize

@@ -25,6 +25,7 @@ const Student = sequelize.define(
   },
   {
     // Other model options go here
+    timestamps: false,
   }
 );
 
