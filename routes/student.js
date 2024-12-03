@@ -16,6 +16,18 @@ router.get("/students", (req, res) => {
     });
 });
 
+// get one student
+router.get("/students/:id", (req, res) => {
+  // find all students using the Student model
+  Student.findByPk(parseInt(req.params.id))
+    .then((student) => {
+      res.status(200).send(student);
+    })
+    .catch((err) => {
+      res.status(err.status).send(err.message);
+    });
+});
+
 // post a new student
 router.post("/students", (req, res) => {
   // create a new student using the Student model
@@ -27,7 +39,7 @@ router.post("/students", (req, res) => {
       res.status(200).send(student);
     })
     .catch((err) => {
-      res.status(err.status).send(err.message);
+      res.send(err.message);
     });
 });
 

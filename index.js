@@ -9,6 +9,8 @@ const cors = require("cors");
 
 // urlencoded middleware from express
 app.use(express.urlencoded({ extended: true }));
+// accept json data
+app.use(express.json());
 // extended means that the values can be any type
 
 // use cors middleware
